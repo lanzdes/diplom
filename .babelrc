@@ -1,0 +1,23 @@
+{
+  "presets": ["@babel/preset-env","@babel/preset-react", "react-app"],
+  "plugins": [
+    ["babel-plugin-inline-import", { "extensions": [".svg"] }],
+    [
+      "module-resolver",
+      
+      {
+        "root": [
+          "./src"
+        ],
+        "alias": {
+          "examples": "./src/components/examples",
+          "examples/*": "./src/components/examples/*",
+          "components": "./src/components",
+          "components/*": "./src/components/*",
+          "services": "./src/services",
+          "services/*": "./src/services/*"
+        }
+      }
+    ],
+  ]
+}

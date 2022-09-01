@@ -1,0 +1,126 @@
+{
+  "env": {
+    "browser": true,
+    "es6": true,
+    "node": true
+  },
+  "ignorePatterns": ["node_modules/**"],
+  "parser": "@typescript-eslint/parser",
+  "extends": [
+    "plugin:react/recommended",
+    "prettier",
+    "plugin:prettier/recommended",
+    "plugin:import/recommended",
+    "eslint:recommended"
+  ],
+  "settings": {
+    "react": {
+      "createClass": "createReactClass", // Regex for Component Factory to use,
+                                         // default to "createReactClass"
+      "pragma": "React",  // Pragma to use, default to "React"
+      "fragment": "Fragment",  // Fragment to use (may be a property of <pragma>), default to "Fragment"
+      "version": "detect", // React version. "detect" automatically picks the version you have installed.
+                           // You can also use `16.0`, `16.3`, etc, if you want to override the detected value.
+                           // It will default to "latest" and warn if missing, and to "detect" in the future
+      "flowVersion": "0.53" // Flow version
+    },
+    "import/resolver": {
+      "node": {
+        "paths": ["src", "src/components"],
+        "extensions": [".js", ".ts", ".tsx"]
+      }
+    }
+  },
+  
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "ecmaVersion": 11,
+    "sourceType": "module"
+  },
+  "plugins": [
+    "babel",
+    "react",
+    "prettier",
+    "react-hooks",
+    "@typescript-eslint"
+  ],
+  "rules": {
+    "react/no-unused-prop-types": 2,
+    "react/react-in-jsx-scope": "off",
+    "prettier/prettier": [
+      "error",
+      {
+        "singleQuote": true,
+        "trailingComma": "all"
+      }
+    ],
+    "react/jsx-filename-extension": [
+      1,
+      {
+        "extensions": [".tsx"]
+      }
+    ],
+    "import/extensions": ["error", "never"],
+    "import/prefer-default-export": 0,
+    "camelcase": 0,
+    "class-methods-use-this": 0,
+    "no-underscore-dangle": 0,
+    "no-unused-vars": "off",
+    // "@typescript-eslint/no-unused-vars": ["error"],
+    "no-unused-expressions": 0,
+    "babel/no-unused-expressions": 2,
+    "react/jsx-props-no-spreading": 0,
+    "react/button-has-type": 0,
+    "react/display-name": 0,
+    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": "error",
+    "no-param-reassign": 0,
+    "no-use-before-define": 0,
+    "no-nested-ternary": 0,
+
+    "import/no-extraneous-dependencies": [
+      2,
+      {
+        "devDependencies": true
+      }
+    ],
+    "react/prop-types": "off",
+    "jsx-a11y/click-events-have-key-events": 0,
+    "react/require-default-props": 0,
+    "no-shadow": "off",
+    "consistent-return": "off",
+    "@typescript-eslint/no-shadow": ["error"],
+    "@typescript-eslint/naming-convention": [
+      "error",
+      {
+        "selector": "interface",
+        "format": ["PascalCase"],
+        "custom": {
+          "regex": "^I[A-Z]",
+          "match": true
+        }
+      }
+    ]
+  },
+  "overrides": [
+    {
+      "files": [
+        "**/*.test.js",
+        "**/*.test.jsx",
+        "**/*.test.tsx",
+        "**/*.spec.js",
+        "**/*.spec.jsx",
+        "**/*.spec.tsx",
+        "**/*.test.ts"
+      ],
+      "env": {
+        "jest": true
+      }
+    }
+  ],
+  "globals": {
+    "JSX": true
+  }
+}
